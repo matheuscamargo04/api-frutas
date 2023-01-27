@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: frutas-api
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hibernatedb
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: admin
+    hikari:
+      validationQuery: SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS
+  jpa:
+    open-in-view: false
+    show-sql: false
+    format-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          auto: none
+        temp:
+          use_jdbc_metadata_defaults: true
+  liquibase:
+    change-log: classpath:database/changelog.yaml
